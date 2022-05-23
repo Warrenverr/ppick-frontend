@@ -1,0 +1,104 @@
+.inquire-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 210px;
+  margin-top: 40px;
+}
+
+.inquire-text-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+.inquire-top-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 30px;
+  padding-right: 20px;
+}
+
+.inquire-bottom-container {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  /* background-color: #fff0e1; */
+  border-radius: 15px;
+  padding: 10px 0;
+}
+
+.inquire-rightbox {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.search-box {
+  width: 40%;
+  height: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+  padding: 8px 5px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.update-checkbox {
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.popular-checkbox {
+  width: 15px;
+  height: 15px;
+  margin-left: 12px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.language {
+  width: 40px;
+  margin: 0 8px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.language:hover {
+  transform: scale(1.1);
+}
+
+.inquire-mid-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  padding-right: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.searchicon {
+  position: relative;
+  right: 32px;
+  color: gray;
+}
+
+.searchimg {
+  width: 45px;
+  margin-right: 5px;
+}
