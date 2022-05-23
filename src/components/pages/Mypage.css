@@ -1,0 +1,20 @@
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  .name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -25px;
+  }
+  
