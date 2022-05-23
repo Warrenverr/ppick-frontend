@@ -1,0 +1,137 @@
+.main {
+  width: 100%;
+  height: fit-content;
+
+  background: #f8f8f8;
+
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.contents {
+  width: 100%;
+  display: flex;
+  justify-content: first baseline;
+  align-items: left;
+}
+
+.centerdiv {
+  padding: 2rem 0;
+}
+
+.sector {
+  padding-bottom: 1rem;
+}
+
+.info {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.info_list {
+  list-style: none;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 30px;
+}
+
+.project {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: fit-content;
+  height: 30px;
+  background: #ff9887;
+  border-radius: 10px;
+
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+
+  font-size: 13px;
+  color: white;
+}
+
+.proj {
+  width: 100%;
+  height: fit-content;
+
+  background: #f8f8f8;
+
+  justify-content: center;
+  display: flex;
+  align-items: center;
+
+  padding-bottom: 2rem;
+}
+
+.sub {
+  padding: 2rem 0;
+}
+
+.bar {
+  margin-left: 10rem;
+  margin-right: 10rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.contest_info {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 22px;
+  width: 500px;
+
+  text-align: center;
+  letter-spacing: -0.02em;
+
+  color: #0a0a0a;
+  padding-bottom: 0.5rem;
+  padding-right: 0.3rem;
+
+  border-bottom: #ff9887 1px solid;
+  text-decoration: none;
+
+  background-color: white;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.other_contest {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 22px;
+  width: 500px;
+
+  text-align: center;
+  letter-spacing: -0.02em;
+
+  color: #0a0a0a;
+
+  padding-bottom: 0.5rem;
+
+  border-bottom: #ff9887 1px solid;
+  text-decoration: none;
+
+  background-color: white;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.garbage {
+  padding-bottom: 20rem;
+}
+
+.intro {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: last baseline;
+  padding-left: 150px;
+
+  height: fit-content;
+  margin-bottom: 1rem;
+}

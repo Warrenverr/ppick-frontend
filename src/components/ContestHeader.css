@@ -1,0 +1,37 @@
+.app__header {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: last baseline;
+  padding-left: 150px;
+
+  height: fit-content;
+  margin-bottom: 1rem;
+}
+
+.app__header-info {
+  width: fit-content;
+
+  padding-left: 1rem;
+
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 46px;
+
+  text-align: center;
+}
+
+.app__header-title {
+  margin-top: 2rem;
+
+  left: 118px;
+  top: 192px;
+
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 29px;
+
+  text-align: left;
+
+  color: #000000;
+}
