@@ -37,14 +37,12 @@ function ProjectList(props) {
         maintitle="모집중인 프로젝트🤝"
       />
       <Inquire text="프로젝트 찾기" setKeyword={setKeyword} />
-
-      {props.search}
       <div className="project-container">
         {project.map((item) => (
           <Link
             to="/project_detail"
             state={{
-              projectdata: item,
+              projectdata:item,
             }}
           >
             <div className="projectlist" key={item.id}>

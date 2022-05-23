@@ -1,13 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import "./DeveloperDetail.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+import { useLocation } from "react-router-dom";
+import UserModal from "./UserModal";
 
-function DeveloperDetail() {
+function DeveloperDetail(props) {
+  const developerdata = useLocation().state.developerdata;
+  const [like, setLike] = useState(false);
+
+  // useEffect(() => {
+  //   if (developerdata.likes === 'liked') setLike(true);
+  //   setLike(false);
+  // }, []);
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   return (
     <div className="DeveloperDetial-container">
       <div className="DeveloperDetail-TitleContainer">
         <img className="Developer-img" src="img/developerimg.png"></img>
-        <p className="developer-Leader-name">짱융지</p>
+        <p className="developer-Leader-name">{developerdata.id}</p>
         <button className="DeveloperPPick-btnsmall">개발자 PPICK</button>
+        <div className="heart-container">
+            <p>좋아요</p>
+            <FontAwesomeIcon
+              icon={like ? solidHeart : regularHeart}
+              className="detail-heart"
+            />
+          </div>
       </div>
 
       <div className="DeveloperDetail-contextContainer">
@@ -18,6 +48,11 @@ function DeveloperDetail() {
               <span className="Developer-major">프론트엔드 개발자</span>
               <span className="Developer-major-degree"></span>
             </li>
+          </ul>
+        </div>
+        <div className="DeveloperDetail-context">
+          <h2>숙련도</h2>
+          <ul>
             <li className="listyle">
               <span className="Developer-major">안드로이드 앱 개발</span>
               <span className="Developer-major-degree">중수</span>
@@ -66,6 +101,13 @@ function DeveloperDetail() {
       </div>
       <div className="DeveloperDetail-ButtonContainer">
         <button className="DeveloperPPick-btn">개발자 PPICK</button>
+        <UserModal
+            open={modalOpen}
+            close={closeModal}
+            projectId={developerdata.id}
+          >
+            지원
+        </UserModal>
       </div>
       <div className="Projcet-recommendContainer">
           <h3>[추천] 이런 프로젝트는 어때요?</h3>

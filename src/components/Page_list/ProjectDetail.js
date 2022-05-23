@@ -10,7 +10,9 @@ import { faAngleUp as up} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 function ProjectDetail(props) {
+
   const projectdata = useLocation().state.projectdata;
+  const [project, setproject] = useState();
 
   const [like, setLike] = useState(false);
 
@@ -24,9 +26,15 @@ function ProjectDetail(props) {
   // }
 
   const [comment, setComment] = useState();
+  const [commentArray, setCommentArray] = useState([]);
+
+  useEffect(() => {
+    setCommentArray(projectdata.commentList);
+  }, [])
 
   const handleCommentInput = (event) => {
-    setComment(event.target.value);
+    const text = event.target.value;
+    setComment(text);
     console.log(comment);
   };
 
@@ -37,16 +45,28 @@ function ProjectDetail(props) {
         event.preventDefault();
         if (event.target.value !== "") {
           const response = await axios.post("/api/comment/write/" + projectdata.id, {
-          //id랑 comment보내기
+          //id랑 comment보내기  
           content:comment,
         });}
         event.target.value = "";
+        repostProject();
       } catch (error) {
-        //응답 실패
         console.error(error);
       }
     }
   }
+
+  async function repostProject() {
+      axios({
+        url: "/api/project/detail/" + projectdata.id,
+        method: "GET",
+      }).then((res) => {
+        setCommentArray(res.data.commentList);
+        projectdata.push(res.data);
+        console.log("성공");
+      });
+  }
+  
 
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -58,7 +78,7 @@ function ProjectDetail(props) {
   };
 
   
-  const recruit = projectdata.recruit;
+  // const recruit = projectdata.recruit;
 
   const [ProjectModalOn, setProjectModalOn] = useState(false);
 
@@ -77,7 +97,7 @@ function ProjectDetail(props) {
           <h1 className="ProjectDetail-Title">{projectdata.title}</h1>
           <div className="ProjectDetail-Leader">
             <img className="Leader-img" src="img/developerimg.png"></img>
-            <p className="Leader-name">짱융지</p>
+            <p className="Leader-name">{projectdata.author.nickname}</p>
             <p className="Leader-slash">|</p>
             <p className="Project-postdate">{projectdata.createDate.substr(0,10)}</p>
             <p className="Leader-etc">게시</p>
@@ -248,7 +268,7 @@ function ProjectDetail(props) {
         <h2>댓글</h2>
         <input
             className="comment-input"
-            type="text" key={projectdata.id}
+            type="text"
             placeholder="댓글을 입력해주세요"
             onKeyPress={(event) => {
               handleTotalEnter(event);
@@ -262,13 +282,13 @@ function ProjectDetail(props) {
           </div>
           
           <div className="comment-div">
-            {projectdata.commentList.map((data, index) => (
+            {commentArray.map((data, index) => (
               <div className="comment-bottom">
                 <ul>
                   <div className="comment-open">
                     <li className="comment-line">
                       <img className="comment-img" src="img/developerimg.png"></img>
-                      <span className="comment-id">{data.author.nickname}</span>
+                      <span className="comment-id">1</span>
                       <span className="comment-text">{data.content}</span>
                     </li>
                     {/* <FontAwesomeIcon icon={open ? up : down} key={data.id} className="open-icon" onClick={toggleOpen}/> */}

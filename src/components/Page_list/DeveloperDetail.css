@@ -28,7 +28,7 @@
 }
 
 .developer-Leader-name {
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 600;
   margin-top: 7px;
 }
@@ -46,7 +46,7 @@
 .DeveloperDetail-context {
   display: flex;
   flex-direction: row;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
 .DeveloperDetail-context h2 {
@@ -93,14 +93,14 @@
 .DeveloperPPick-btnsmall {
   background-color: #000;
   color: #fff;
-  border-radius: 7px;
-  padding: 4px 5px;
-  font-size: 10px;
+  border-radius: 8px;
+  padding: 4px 7px;
+  font-size: 13px;
   font-weight: 500;
   cursor: pointer;
   position: relative;
-  right: -90px;
-  bottom: 28px;
+  right: -100px;
+  bottom: 33px;
 }
 
 .DeveloperPPick-btn {

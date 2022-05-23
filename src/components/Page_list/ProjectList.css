@@ -39,7 +39,7 @@
 
 .projectlist-platform {
   display: flex;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 400;
   color: #808080;
   flex-direction: row;
@@ -47,7 +47,7 @@
 }
 
 .projectlist-main {
-  height: 15%;
+  height: 30%;
   display: flex;
   flex-direction: row;
   font-size: 13px;
@@ -73,7 +73,7 @@
   font-size: 12px;
   font-weight: 400;
   color: #808080;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   display: flex;
   flex-direction: row;
   border-bottom: 1.2px solid rgba(0, 0, 0, 0.2);
@@ -113,7 +113,7 @@
 .projectlist-nickname {
   display: flex;
   flex-direction: row;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 400;
 }
 

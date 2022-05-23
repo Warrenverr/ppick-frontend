@@ -67,7 +67,7 @@ const Modal = (props) => {
                 rows="10"
                 className="apply-box"
                 type="text"
-                placeholder="프로젝트에 참여하는 각오 또는 간단한 자기소개를 적어주세요"
+                placeholder="프로젝트에 참여하는 각오 또는 간단한 자기소개를 작성해주세요"
                 onChange={onContentChange}
                 value={contentValue}
               ></textarea>
@@ -77,7 +77,7 @@ const Modal = (props) => {
               <span>-프로젝트 리더에게 연락처가 제공됩니다.</span>
               <span>-프로젝트 분쟁사항은 PPICK에서 책임지지 않습니다.</span>
               <span>
-                -리더가 일주일동안 승인하지 않으면 자동으로 지원이 취소됩니다.
+                -리더가 일주일동안 승인하지 않으면 지원이 자동으로 취소됩니다.
               </span>
             </div>
             <div className="apply-btncontainer">
@@ -91,5 +91,7 @@ const Modal = (props) => {
     </div>
   );
 };
+
+
 
 export default Modal;

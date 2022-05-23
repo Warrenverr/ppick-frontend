@@ -16,21 +16,22 @@ function DeveloperList() {
   };
 
   const [keyword, setKeyword] = useState("");
-  const [developer, setDeveloper] = useState([]);
+  const [user, setUser] = useState([]);
 
-  // useEffect(() => {
-  //   axios({
-  //     url: "/api/user/list",
-  //     method: "GET",
-  //     params:{
-  //       page : 0,
-  //       keyword:keyword
-  //     }
-  //   }).then((res) => {
-  //     callback(res.data);
-  //     console.log("성공");
-  //   });
-  // }, [keyword]);
+
+  useEffect(() => {
+    axios({
+      url: "/api/user/list",
+      method: "GET",
+      params:{
+        page : 0,
+        keyword:keyword
+      }
+    }).then((res) => {
+      setUser(res.data);
+      console.log("성공");
+    });
+  }, [keyword]);
 
   return (
     <div>
@@ -40,23 +41,24 @@ function DeveloperList() {
       />
       <Inquire text="개발자 찾기"  setKeyword={setKeyword}/>
       <div className="developer-container">
-        {developer.map((item) => (
+        {user.map((item) => (
           <Link to="/developer_detail"
                 state={{ developerdata: item, }}>
             <div className="developerlist" key={item.id}>
               <img className="developer-img" src="img/developerimg.png"></img>
-              <div className="developerlist-name">{item.name}</div>
-              <div className="developerlist-intro">{item.intro}</div>
-              <div className="developerlist-context">{item.text}</div>
+              <div className="developerlist-name">{item.nickname}</div>
+              <div className="developerlist-intro">{item.job}</div>
+              {/* <div className="developerlist-context">{item.text}</div> */}
 
               <div className="developerlist-main">
-                <p className="developerlist-stack">React</p>
-                <p className="developerlist-stack">Spring</p>
+                {item.skill.map((skills) => (
+                  <span className="developerlist-stack">{skills}</span>
+                ))}
               </div>
               <div className="developerlist-footer">
                <div className="heart-cofntainer">
                   <FontAwesomeIcon icon={faHeart} className="heart" />
-                  <p className="heart-cnt">{item.likes.length}</p>
+                  {/* <p className="heart-cnt">{item.likes.length}</p> */}
                 </div>
               </div>
             </div>
