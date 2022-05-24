@@ -1,43 +1,77 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import images from '../constants/images';
 import './Contest.css';
 import ReactTooltip from 'react-tooltip';
 import { BrowserRouter as Router, Routes, Link, Route } from 'react-router-dom';
+import ContestHeader from './ContestHeader';
 
 function ContestInfo() {
-  return (
-    <div className='intro'>
-      <h1>내용</h1>
-    </div>
-  );
+  const [content, setContent] = useState('');
+  const axios = require('axios');
+  const id = 3;
+
+  axios.get('/contest/list').then(function (res) {
+    setContent(res.data[id].content);
+  });
+
+  return <div className='intro'>${content}</div>;
 }
 
 function OtherContest() {
+  const [content, setContent] = useState('');
+  const axios = require('axios');
+  const id = 2;
+
+  axios.get('/project/list').then(function (res) {
+    setContent(res.data[id].content);
+  });
+
   return (
     <div className='intro'>
-      <h1>안녕하세요.</h1>
+      <h1>{content}</h1>
     </div>
   );
 }
 
 function Contest() {
+  const [img, setImg] = useState('');
+  const [host, setHost] = useState('');
+  const [applyDate, setApplydate] = useState('');
+  const [reward, setReward] = useState('');
+  const [link, setLink] = useState('');
+  const [condition, setCondition] = useState('');
+  const [field, setField] = useState('');
   const [convertO, setConvertO] = useState(false);
-  const [convertI, setConverI] = useState(true);
+  const [convertI, setConvertI] = useState(true);
   const onClickO = () => {
     setConvertO(true);
-    setConverI(false);
+    setConvertI(false);
   };
   const onClickI = () => {
-    setConverI(true);
+    setConvertI(true);
     setConvertO(false);
   };
 
+  const axios = require('axios');
+  const id = 3;
+
+  axios.get('/contest/list').then(function (res) {
+    setImg(res.data[id].img);
+    setHost(res.data[id].host);
+    setCondition(res.data[id].condition);
+    setApplydate(res.data[id].apply_date);
+    setReward(res.data[id].reward);
+    setLink(res.data[id].link);
+    setField(res.data[id].field);
+  });
+
   return (
-    <Router>
+    <>
+      <ContestHeader />
       <div className='main'>
         <div className='centerdiv'>
-          <img src={images.sample} alt='contest image' />
+          <img className='img div' src={img} alt='contest image' />
           <div className='sector'></div>
           <div className='contents'>
             <div className='title'>
@@ -52,12 +86,16 @@ function Contest() {
             </div>
             <div className='info'>
               <ul className='info_list'>
-                <li>분야</li>
-                <li>응모대상</li>
-                <li>주최</li>
-                <li>접수 기간</li>
-                <li>상금</li>
-                <li>홈페이지</li>
+                <li>{field}</li>
+                <li>{condition}</li>
+                <li>{host}</li>
+                <li>{applyDate}</li>
+                <li>{reward}</li>
+                <li>
+                  <a className='contest_url' href={link}>
+                    {link}
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -88,7 +126,7 @@ function Contest() {
         </div>
       </div>
       <div className='garbage'></div>
-    </Router>
+    </>
   );
 }
 

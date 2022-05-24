@@ -1,16 +1,21 @@
 import React from 'react';
-import ContestHeader from './components/ContestHeader';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Project from './components/Project';
 import Contest from './components/Contest';
-import './App.css';
 
-const App = () => (
-  <div>
-    <Navbar />
-    <ContestHeader />
-    <div className='app__main'></div>
-    <Contest />
-  </div>
-);
+function App() {
+  return (
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route exact path='/Project' element={<Project />}></Route>
+          <Route exact path='/Contest' element={<Contest />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
 
 export default App;

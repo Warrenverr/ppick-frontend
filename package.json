@@ -10,10 +10,12 @@
     "axios": "^0.27.2",
     "react": "^18.1.0",
     "react-date-picker": "^8.4.0",
+    "react-datepicker": "^4.8.0",
     "react-dom": "^18.1.0",
     "react-multi-level-selector": "^1.0.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.3.2",
     "react-tooltip": "^4.2.21",
     "web-vitals": "^2.1.4"
   },

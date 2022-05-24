@@ -1,6 +1,7 @@
 import React from 'react';
 import images from '../constants/images';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
@@ -13,17 +14,17 @@ function Navbar() {
           <a href='projectList'>프로젝트</a>
         </li>
         <li className='p__opensans'>
-          <a href='develpoerList'>개발자</a>
+          <a href='developer'>개발자</a>
         </li>
         <li className='p__opensans'>
-          <a href='contestList'>공모전</a>
+          <Link to='Contest'>공모전</Link>
         </li>
       </ul>
       <div className='app__navbar-login'>
         <div className='app__navbar-project'>
-          <a href='/Project' className='app__navbar-box'>
+          <Link to='Project' className='app__navbar-box'>
             프로젝트 생성하기
-          </a>
+          </Link>
         </div>
         <a href='#login' className='p__opensans'>
           가입/로그인

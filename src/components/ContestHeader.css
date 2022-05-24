@@ -1,4 +1,4 @@
-.app__header {
+.contest__header {
   width: 100%;
   display: flex;
   align-items: flex-start;
@@ -9,7 +9,7 @@
   margin-bottom: 1rem;
 }
 
-.app__header-info {
+.contest__header-info {
   width: fit-content;
 
   padding-left: 1rem;
@@ -21,7 +21,7 @@
   text-align: center;
 }
 
-.app__header-title {
+.contest__header-title {
   margin-top: 2rem;
 
   left: 118px;
