@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './ContestHeader.css';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 function ContestHeader() {
-  const [title, setTitle] = useState('');
-
-  const axios = require('axios');
-  const id = 3;
-
-  axios.get('/contest/list').then(function (res) {
-    setTitle(res.data[id].title);
-  });
+  const ContestData = useLocation().state.ContestData;
+  const [title, setTitle] = useState(ContestData.title);
 
   return (
     <div className='contest__header' id='home'>

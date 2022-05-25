@@ -1,31 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import images from '../constants/images';
 import './Contest.css';
 import ReactTooltip from 'react-tooltip';
-import { BrowserRouter as Router, Routes, Link, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Link,
+  Route,
+  useLocation,
+} from 'react-router-dom';
 import ContestHeader from './ContestHeader';
+import { useParams } from 'react-router-dom';
 
 function ContestInfo() {
-  const [content, setContent] = useState('');
-  const axios = require('axios');
-  const id = 3;
-
-  axios.get('/contest/list').then(function (res) {
-    setContent(res.data[id].content);
-  });
-
-  return <div className='intro'>${content}</div>;
-}
-
-function OtherContest() {
-  const [content, setContent] = useState('');
-  const axios = require('axios');
-  const id = 2;
-
-  axios.get('/project/list').then(function (res) {
-    setContent(res.data[id].content);
-  });
+  const ContestData = useLocation().state.ContestData;
+  const [content, setContent] = useState(ContestData.content);
 
   return (
     <div className='intro'>
@@ -34,16 +23,24 @@ function OtherContest() {
   );
 }
 
-function Contest() {
-  const [img, setImg] = useState('');
-  const [host, setHost] = useState('');
-  const [applyDate, setApplydate] = useState('');
-  const [reward, setReward] = useState('');
-  const [link, setLink] = useState('');
-  const [condition, setCondition] = useState('');
-  const [field, setField] = useState('');
+function OtherContest() {
+  const ContestData = useLocation().state.ContestData;
+
+  return <div className='intro'>관련 공모전</div>;
+}
+
+function Contest(props) {
+  const ContestData = useLocation().state.ContestData;
+  const [img, setImg] = useState(ContestData.img);
+  const [host, setHost] = useState(ContestData.host);
+  const [applyDate, setApplydate] = useState(ContestData.apply_date);
+  const [reward, setReward] = useState(ContestData.reward);
+  const [link, setLink] = useState(ContestData.link);
+  const [condition, setCondition] = useState(ContestData.condition);
+  const [field, setField] = useState(ContestData.field);
   const [convertO, setConvertO] = useState(false);
   const [convertI, setConvertI] = useState(true);
+
   const onClickO = () => {
     setConvertO(true);
     setConvertI(false);
@@ -53,25 +50,12 @@ function Contest() {
     setConvertO(false);
   };
 
-  const axios = require('axios');
-  const id = 3;
-
-  axios.get('/contest/list').then(function (res) {
-    setImg(res.data[id].img);
-    setHost(res.data[id].host);
-    setCondition(res.data[id].condition);
-    setApplydate(res.data[id].apply_date);
-    setReward(res.data[id].reward);
-    setLink(res.data[id].link);
-    setField(res.data[id].field);
-  });
-
   return (
     <>
       <ContestHeader />
       <div className='main'>
         <div className='centerdiv'>
-          <img className='img div' src={img} alt='contest image' />
+          <img className='img div' src={ContestData.img} alt='contest image' />
           <div className='sector'></div>
           <div className='contents'>
             <div className='title'>

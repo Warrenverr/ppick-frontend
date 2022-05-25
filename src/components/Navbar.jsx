@@ -17,7 +17,7 @@ function Navbar() {
           <a href='developer'>개발자</a>
         </li>
         <li className='p__opensans'>
-          <Link to='Contest'>공모전</Link>
+          <Link to='ContestList'>공모전</Link>
         </li>
       </ul>
       <div className='app__navbar-login'>
