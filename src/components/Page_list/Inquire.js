@@ -4,6 +4,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 function Inquire(props) {
+  const [language, setLanguage] = useState([
+    {skill : 'java'},
+    {skill : 'react'},
+    {skill : 'nodejs'},
+    {skill : 'typescript'},
+    {skill : 'html'},
+    {skill : 'css'},
+    {skill : 'js'},
+    {skill : 'vue'},
+    {skill : 'nextjs'},
+    {skill : 'kotlin'},
+    {skill : 'spring'},
+    {skill : 'mysql'},
+    {skill : 'python'},
+    {skill : 'django'},
+    {skill : 'flutter'},
+    {skill : 'swift'},
+  ]);
+
   const [searchState, setSearchState] = useState("");
   const onSearchChange = (e) => {
     setSearchState(e.target.value);
@@ -15,6 +34,11 @@ function Inquire(props) {
     }
   };
 
+  const [skill, setSkill] = useState();
+  const imageClick = () => {
+    console.log('click');
+  } 
+
   return (
     <>
       <div className="inquire-container">
@@ -23,22 +47,13 @@ function Inquire(props) {
           <span>{props.text}</span>
         </div>
         <div className="inquire-bottom-container">
-          <img className="language" alt="" src="img/java.png" />
-          <img className="language" alt="" src="img/react.png" />
-          <img className="language" alt="" src="img/nodejs.png" />
-          <img className="language" alt="" src="img/typescript.png" />
-          <img className="language" alt="" src="img/html.png" />
-          <img className="language" alt="" src="img/css.png" />
-          <img className="language" alt="" src="img/js.png" />
-          <img className="language" alt="" src="img/vue.png" />
-          <img className="language" alt="" src="img/nextjs.png" />
-          <img className="language" alt="" src="img/kotlin.png" />
-          <img className="language" alt="" src="img/spring.png" />
-          <img className="language" alt="" src="img/mysql.png" />
-          <img className="language" alt="" src="img/python.png" />
-          <img className="language" alt="" src="img/django.png" />
-          <img className="language" alt="" src="img/flutter.png" />
-          <img className="language" alt="" src="img/swift.png" />
+          {language.map((item) => (
+            <img className="language" alt="" src={`img/${item.skill}.png`}
+            onClick={() => {
+              setSkill(item.skill);
+              imageClick();
+            }} />
+          ))}
         </div>
         <div className="inquire-top-container">
           <div className="inquire-rightbox">

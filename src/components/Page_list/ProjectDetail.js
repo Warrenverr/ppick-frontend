@@ -9,27 +9,31 @@ import { faAngleDown as down } from "@fortawesome/free-solid-svg-icons";
 import { faAngleUp as up} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-function ProjectDetail(props) {
-
-  const projectdata = useLocation().state.projectdata;
-  const [project, setproject] = useState();
+function ProjectDetail() {
 
   const [like, setLike] = useState(false);
 
-  useEffect(() => {
-    if (projectdata.likes === 'liked') setLike(true);
-    setLike(false);
-  }, []);
+  // useEffect(() => {
+  //   if (projectdata.likes === 'liked') setLike(true);
+  //   setLike(false);
+  // }, []);
+
+  const project = useLocation().state.projectdata;
+  const [comment, setComment] = useState();
+  const [commentList, setCommentList] = useState(project.commentList);
+
+  const [projectdata, setProjectdata] = useState(project);
+
+  const [recomment, setReComment] = useState();
+  const [recommentList, setReCommentList] = useState(project.commentList.reCommentList);
+  const [recommentID, setRecommentID] = useState();
 
   // const toggleLike= () => {
   //   좋아요 누를때 플젝id랑 사용자id보내면 좋아요 값 받아오고 나는 좋아요 상태바꿔주기 true
   // }
 
-  const [comment, setComment] = useState();
-  const [commentArray, setCommentArray] = useState([]);
-
   useEffect(() => {
-    setCommentArray(projectdata.commentList);
+    repostProject()
   }, [])
 
   const handleCommentInput = (event) => {
@@ -44,27 +48,70 @@ function ProjectDetail(props) {
         //응답 성공
         event.preventDefault();
         if (event.target.value !== "") {
-          const response = await axios.post("/api/comment/write/" + projectdata.id, {
+          const response = await axios.post("/api/comment/write/" + project.id, {
           //id랑 comment보내기  
           content:comment,
         });}
         event.target.value = "";
-        repostProject();
+        repostProject()
+        window.location.reload()
       } catch (error) {
         console.error(error);
       }
     }
   }
 
+  async function btnsubmit(event) {
+      try {
+        //응답 성공
+        event.preventDefault();
+        const response = await axios.post("/api/comment/write/" + project.id, {
+        //id랑 comment보내기  
+        content:comment,
+        });
+        repostProject()
+        window.location.reload()
+      } catch (error) {
+        console.error(error);
+      }
+  }
+
   async function repostProject() {
       axios({
-        url: "/api/project/detail/" + projectdata.id,
+        url: "/api/project/detail/" + project.id,
         method: "GET",
       }).then((res) => {
-        setCommentArray(res.data.commentList);
-        projectdata.push(res.data);
+        setProjectdata({...res.data})
+        setCommentList(res.data.commentList)
+        setReCommentList(res.data.commentList.reCommentList)
         console.log("성공");
       });
+  }
+
+  const handleReInput = (event) => {
+    const text = event.target.value;
+    setReComment(text);
+    console.log(recomment);
+  };
+
+  async function handleReEnter(event) {
+    if (event.key === "Enter") {
+      try {
+        //응답 성공
+        event.preventDefault();
+        if (event.target.value !== "") {
+          const response = await axios.post("/api/recomment/write/" + recommentID, {
+          //id랑 comment보내기  
+          content:recomment,
+        });}
+        event.target.value = "";
+        repostProject()
+        window.location.reload()
+        console.log(recommentID);
+      } catch (error) {
+        console.error(error);
+      }
+    }
   }
   
 
@@ -77,18 +124,7 @@ function ProjectDetail(props) {
     setModalOpen(false);
   };
 
-  
-  // const recruit = projectdata.recruit;
-
   const [ProjectModalOn, setProjectModalOn] = useState(false);
-
-  const [open, setOpen] = useState(false);
-  const [openKey, setOpenKey] = useState();
-
-  const toggleOpen = (event) => {
-    setOpenKey(0);
-    setOpen(!open);
-  }
 
   return (
     <>
@@ -278,22 +314,22 @@ function ProjectDetail(props) {
             }}
           ></input>
           <div className="comment-btndiv">
-            <button className="comment-btn">댓글 등록</button>
+            <button className="comment-btn" onClick={btnsubmit} >댓글 등록</button>
           </div>
           
           <div className="comment-div">
-            {commentArray.map((data, index) => (
+            {commentList.map((data) => (
               <div className="comment-bottom">
                 <ul>
                   <div className="comment-open">
                     <li className="comment-line">
                       <img className="comment-img" src="img/developerimg.png"></img>
-                      <span className="comment-id">1</span>
+                      <span className="comment-id">{data.id}</span>
                       <span className="comment-text">{data.content}</span>
+                      <span className="comment-date">{data.createDate.substr(0,10)}</span>
+                      <span className="comment-datetext">작성</span>
                     </li>
-                    {/* <FontAwesomeIcon icon={open ? up : down} key={data.id} className="open-icon" onClick={toggleOpen}/> */}
                   </div>
-
                   <div className="commentReply-container">
               <p>답글 달기</p>
               <input
@@ -301,19 +337,20 @@ function ProjectDetail(props) {
                 type="text"
                 placeholder="답글을 입력해주세요"
                 onKeyPress={(event) => {
-                  handleTotalEnter(event);
+                  handleReEnter(event);
                 }}
                 onKeyUp={(event) => {
-                  handleCommentInput(event);
+                  handleReInput(event);
+                  setRecommentID(data.id);
                 }}
               ></input>
                 </div>
                   
                 
-                  {data.reCommentList.map((redata, index) => (
+                  {data.reCommentList.map((redata) => (
                     <div key={data.id} className="show-menu">
                       <li className="comment-reline">
-                        <span className="comment-reid">{redata.author.nickname}</span>
+                        <span className="comment-reid">{redata.id}</span>
                         <span className="comment-retext">{redata.content} </span>
                       </li>
                     </div>

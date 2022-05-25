@@ -48,7 +48,7 @@ function DeveloperList() {
               <img className="developer-img" src="img/developerimg.png"></img>
               <div className="developerlist-name">{item.nickname}</div>
               <div className="developerlist-intro">{item.job}</div>
-              {/* <div className="developerlist-context">{item.text}</div> */}
+              <div className="developerlist-context">{item.detail_category}</div>
 
               <div className="developerlist-main">
                 {item.skill.map((skills) => (

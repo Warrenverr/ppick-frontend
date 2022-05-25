@@ -7,14 +7,15 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import UserModal from "./UserModal";
 
+
 function DeveloperDetail(props) {
   const developerdata = useLocation().state.developerdata;
   const [like, setLike] = useState(false);
 
-  // useEffect(() => {
-  //   if (developerdata.likes === 'liked') setLike(true);
-  //   setLike(false);
-  // }, []);
+  useEffect(() => {
+    if (developerdata.likes === 'liked') setLike(true);
+    setLike(false);
+  }, []);
 
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -29,7 +30,8 @@ function DeveloperDetail(props) {
     <div className="DeveloperDetial-container">
       <div className="DeveloperDetail-TitleContainer">
         <img className="Developer-img" src="img/developerimg.png"></img>
-        <p className="developer-Leader-name">{developerdata.id}</p>
+        <p className="developer-Leader-name">{developerdata.nickname}</p>
+        <p className="developer-Leader-date">{developerdata.date.substr(0,10)} 가입</p>
         <button className="DeveloperPPick-btnsmall">개발자 PPICK</button>
         <div className="heart-container">
             <p>좋아요</p>
@@ -45,8 +47,7 @@ function DeveloperDetail(props) {
           <h2>직무</h2>
           <ul>
             <li className="listyle">
-              <span className="Developer-major">프론트엔드 개발자</span>
-              <span className="Developer-major-degree"></span>
+              <span className="Developer-major">{developerdata.job}</span>
             </li>
           </ul>
         </div>
@@ -54,30 +55,31 @@ function DeveloperDetail(props) {
           <h2>숙련도</h2>
           <ul>
             <li className="listyle">
-              <span className="Developer-major">안드로이드 앱 개발</span>
+              <span className="Developer-major">{developerdata.detail_category}</span>
               <span className="Developer-major-degree">중수</span>
             </li>
-            <li className="listyle">
-              <span className="Developer-major">UI/UX 디자인</span>
-              <span className="Developer-major-degree">초고수</span>
+            
+          </ul>
+        </div>
+        <div className="DeveloperDetail-context">
+          <h2>기술 스택</h2>
+          <ul>
+            <li>
+              {developerdata.skill.map((skills) => (
+                  <img
+                    className="project-language"
+                    alt=""
+                    src={`img/${skills}.png`}
+                  />
+              ))}
             </li>
           </ul>
         </div>
         <div className="DeveloperDetail-context">
-          <h2>기술 언어</h2>
+          <h2>포트폴리오</h2>
           <ul>
             <li>
-              <img className="Developer-language" alt="" src="img/react.png" />
-              <img
-                className=" Developer-language"
-                alt=""
-                src="img/nodejs.png"
-              />
-              <img
-                className=" Developer-language"
-                alt=""
-                src="img/typescript.png"
-              />
+              <p>http://www.naver.com</p>
             </li>
           </ul>
         </div>
@@ -100,11 +102,12 @@ function DeveloperDetail(props) {
         </div>
       </div>
       <div className="DeveloperDetail-ButtonContainer">
-        <button className="DeveloperPPick-btn">개발자 PPICK</button>
+        <button className="DeveloperPPick-btn" onClick={openModal}>개발자 PPICK</button>
         <UserModal
             open={modalOpen}
             close={closeModal}
-            projectId={developerdata.id}
+            developerNickname={developerdata.nickname}
+            developerId={developerdata.id}
           >
             지원
         </UserModal>

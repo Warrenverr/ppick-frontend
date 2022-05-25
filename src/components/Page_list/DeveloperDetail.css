@@ -33,6 +33,12 @@
   margin-top: 7px;
 }
 
+.developer-Leader-date {
+  color: #717171;
+  font-size: 14px;
+  margin-top: 3px;
+}
+
 .DeveloperDetail-contextContainer {
   width: 50%;
   display: flex;
@@ -99,8 +105,8 @@
   font-weight: 500;
   cursor: pointer;
   position: relative;
-  right: -100px;
-  bottom: 33px;
+  right: -130px;
+  bottom: 56px;
 }
 
 .DeveloperPPick-btn {
@@ -146,4 +152,8 @@
   color: #717171;
   margin-bottom: 15px;
   font-weight: 600;
+}
+
+.Developerdetail-introduce {
+  font-size: 18px;
 }

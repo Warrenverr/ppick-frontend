@@ -170,7 +170,7 @@
 }
 
 .project-language {
-  width: 40px;
+  width: 50px;
   margin: 0 8px;
 }
 
@@ -244,6 +244,12 @@
   padding: 10px 20px;
 }
 
+.comment-form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
 .comment-bottom {
   
   padding-top: 20px;
@@ -275,12 +281,24 @@
   margin-left: 5px;
   margin-right: 35px;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .comment-text {
   font-weight: 500;
-  font-size: 15px;
+  font-size: 17px;
+}
+
+.comment-date {
+  color: #717171;
+  font-size: 13px;
+  margin-left: 40px;
+}
+
+.comment-datetext {
+  color: #717171;
+  font-size: 13px;
+  margin-left: 2px;
 }
 
 .comment-reline {
@@ -329,6 +347,7 @@
   padding: 5px 10px;
   font-size: 13px;
   position: relative;
+  cursor: pointer;
 }
 
 .heart-container {
