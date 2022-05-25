@@ -11,6 +11,7 @@ function Project() {
   const [projImg, setImg] = useState('');
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [skill, setSkill] = useState([]);
   const flatformOptions = [
     { value: 'none', label: '미정' },
     { value: 'androidApp', label: '안드로이드 앱' },
@@ -79,7 +80,7 @@ function Project() {
 
   const submit = async (e) => {
     try {
-      const response = await axios.post('/project/write', {
+      const response = await axios.post('/api/project/write', {
         title: projName,
         type: '웹 개발\n',
         export: '웹 어플리케이션',

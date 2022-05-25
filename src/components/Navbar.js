@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./Navbar.css";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Navbar.css';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -25,39 +25,36 @@ function Navbar() {
 
   return (
     <>
-      <nav className="navbar">
-        <div className="navbar-container">
-          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            <img className="logo-img" alt="logo-image" src="img/logo.png" />
+      <nav className='navbar'>
+        <div className='navbar-container'>
+          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+            <img className='logo-img' alt='logo-image' src='img/logo.png' />
           </Link>
-          <div className="menu-icon" onClick={handleClick}>
-            <i className={click ? "fas fa-times" : "fas fa-bars"} />
+          <div className='menu-icon' onClick={handleClick}>
+            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
-          <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <li className="nav-item">
+          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+            <li className='nav-item'>
               <Link
-                to="/project_list"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
+                to='/project_list'
+                className='nav-links'
+                onClick={closeMobileMenu}>
                 프로젝트 삑
               </Link>
             </li>
-            <li className="nav-item">
+            <li className='nav-item'>
               <Link
-                to="/developer_list"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
+                to='/developer_list'
+                className='nav-links'
+                onClick={closeMobileMenu}>
                 개발자 삑
               </Link>
             </li>
-            <li className="nav-item">
+            <li className='nav-item'>
               <Link
-                to="/competition_list"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
+                to='/ContestList'
+                className='nav-links'
+                onClick={closeMobileMenu}>
                 공모전
               </Link>
             </li>
@@ -70,8 +67,8 @@ function Navbar() {
                 프로젝트 생성
               </Link>
             </li> */}
-            <li className="nav-item">
-              <Link to="/login" className="nav-links" onClick={closeMobileMenu}>
+            <li className='nav-item'>
+              <Link to='/login' className='nav-links' onClick={closeMobileMenu}>
                 가입/로그인
               </Link>
             </li>
