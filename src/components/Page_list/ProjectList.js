@@ -10,6 +10,7 @@ import axios from 'axios';
 function ProjectList(props) {
   const [keyword, setKeyword] = useState('');
   const [project, setProject] = useState([]);
+  const [skill, setSkill] = useState("");
 
   function callback(project) {
     setProject(project);
@@ -29,14 +30,39 @@ function ProjectList(props) {
     });
   }, [keyword]);
 
+  // useEffect(() => {
+  //   axios
+  //   .all([axios.get("/api/project/list"), axios.get("/api/project/listBySkill")])
+  //   .then(
+  //     axios.spread((res1, res2) => {
+  //       callback(res1.data);
+  //       callback(res2.data);
+  //     })
+  //   )
+  //   .catch((err) => console.log(err));
+  // }, [])
+
+  useEffect(() => {
+    axios({
+      url: "/api/project/listBySkill",
+      method: "GET",
+      params:{
+        skill : skill
+      }
+    }).then((res) => {
+      callback(res.data);
+      console.log("성공");
+    });
+  }, [skill]);
+
   return (
     <div>
       <TitleBanner
         subtitle='하고 싶은 프로젝트를'
         maintitle='모집중인 프로젝트🤝'
       />
-      <Inquire text='프로젝트 찾기' setKeyword={setKeyword} />
-      <div className='project-container'>
+      <Inquire text="프로젝트 찾기" setKeyword={setKeyword} setSkill={setSkill} />
+      <div className="project-container">
         {project.map((item) => (
           <Link
             to='/project_detail'

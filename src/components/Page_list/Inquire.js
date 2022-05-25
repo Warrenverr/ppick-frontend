@@ -6,7 +6,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 function Inquire(props) {
   const [language, setLanguage] = useState([
     {skill : 'java'},
-    {skill : 'react'},
+    {skill : 'React'},
     {skill : 'nodejs'},
     {skill : 'typescript'},
     {skill : 'html'},
@@ -15,8 +15,8 @@ function Inquire(props) {
     {skill : 'vue'},
     {skill : 'nextjs'},
     {skill : 'kotlin'},
-    {skill : 'spring'},
-    {skill : 'mysql'},
+    {skill : 'SpringBoot'},
+    {skill : 'MySQL'},
     {skill : 'python'},
     {skill : 'django'},
     {skill : 'flutter'},
@@ -36,6 +36,7 @@ function Inquire(props) {
 
   const [skill, setSkill] = useState();
   const imageClick = () => {
+    props.setSkill(skill);
     console.log('click');
   } 
 
