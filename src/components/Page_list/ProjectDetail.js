@@ -22,9 +22,11 @@ function ProjectDetail() {
   const project = useLocation().state.projectdata;
   const [comment, setComment] = useState();
   const [commentList, setCommentList] = useState(project.commentList);
+  
 
   const [projectdata, setProjectdata] = useState(project);
-
+  const [contest, setContest] = useState("");
+  findContest()
   const [recomment, setReComment] = useState();
   const [recommentList, setReCommentList] = useState(project.commentList.reCommentList);
   const [recommentID, setRecommentID] = useState();
@@ -52,6 +54,7 @@ function ProjectDetail() {
 
   useEffect(() => {
     repostProject()
+    findContest()
   }, [])
 
   const handleCommentInput = (event) => {
@@ -105,6 +108,17 @@ function ProjectDetail() {
         console.log("성공");
       });
   }
+
+  async function findContest() {
+    axios({
+      url: "/api/contest/detail/" + project.contest,
+      method: "GET",
+    }).then((res) => {
+      setContest(res.data)
+      console.log(res.data)
+      console.log("성공");
+    });
+}
 
   const handleReInput = (event) => {
     const text = event.target.value;
@@ -208,7 +222,7 @@ function ProjectDetail() {
             <h2>공모전 참여</h2>
             <ul>
               <li>
-                <span>공모전 참여</span>
+                <span>{contest.title}</span>
               </li>
             </ul>
           </div>
@@ -342,7 +356,7 @@ function ProjectDetail() {
                   <div className="comment-open">
                     <li className="comment-line">
                       <img className="comment-img" src="img/developerimg.png"></img>
-                      <span className="comment-id">{data.id}</span>
+                      <span className="comment-id">{data.author.nickname}</span>
                       <span className="comment-text">{data.content}</span>
                       <span className="comment-date">{data.createDate.substr(0,10)}</span>
                       <span className="comment-datetext">작성</span>
@@ -369,7 +383,7 @@ function ProjectDetail() {
                   {data.reCommentList.map((redata) => (
                     <div key={data.id} className="show-menu">
                       <li className="comment-reline">
-                        <span className="comment-reid">{redata.id}</span>
+                        <span className="comment-reid">{redata.author.nickname}</span>
                         <span className="comment-retext">{redata.content} </span>
                       </li>
                     </div>
