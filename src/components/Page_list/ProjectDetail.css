@@ -401,3 +401,10 @@
 .hide-menu {
   display: none;
 }
+
+.comment-datedelete{
+  font-size: 14px;
+  color: #5c5c5c;
+  margin-left: 10px;
+  cursor: pointer;
+}

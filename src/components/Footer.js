@@ -21,7 +21,7 @@ function Footer() {
               type='email'
               placeholder='Your Email'
             />
-            <Button buttonStyle='btn--outline'>Subscribe</Button>
+            <button className='subscribe-btn'>Subscribe</button>
           </form>
         </div>
       </section>
@@ -58,14 +58,14 @@ function Footer() {
       </div>
       <section class='social-media'>
         <div class='social-media-wrap'>
-          <div class='footer-logo'>
+          {/* <div class='footer-logo'>
             <Link to='/' className='social-logo'>
               PPICK!
               <i class='fab fa-typo3' />
             </Link>
-          </div>
+          </div> */}
           <small class='website-rights'>Catholic University of Korea csie © 2022</small>
-          <div class='social-icons'>
+          {/* <div class='social-icons'>
             <Link
               class='social-icon-link facebook'
               to='/'
@@ -106,7 +106,7 @@ function Footer() {
             >
               <i class='fab fa-linkedin' />
             </Link>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>

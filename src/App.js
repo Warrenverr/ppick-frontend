@@ -21,6 +21,7 @@ import project_list from './components/pages/project_list';
 import developer_list from './components/pages/developer_list';
 import Login from './components/pages/Login';
 import Mypage from './components/pages/Mypage';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path='/mypage' element={<Mypage />} />
       </Routes>
       <FixIcon />
+      <Footer />
     </BrowserRouter>
   );
 }

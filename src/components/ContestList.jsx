@@ -8,11 +8,17 @@ import Contest from './Contest';
 function ContestList() {
   const [contest, setContest] = useState([]);
 
-  const axios = require('axios');
+  useEffect(() => {
+    axios({
+      url: "/api/contest/list",
+      method: "GET"
+    }).then((res) => {
+      setContest(res.data);
+      console.log("성공");
+    });
+  }, []);
 
-  axios.get('/contest/list').then(function (res) {
-    setContest(res.data);
-  });
+  console.log(contest);
 
   return (
     <div>

@@ -1,6 +1,6 @@
 .fixIcon {
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
   right: 50px;
   border-radius: 15px;
   background-color: #ff6b00;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 600;
   box-shadow: var(--box-shadow);
   color: black;

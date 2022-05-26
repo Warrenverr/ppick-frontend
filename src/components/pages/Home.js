@@ -2,17 +2,15 @@ import React from 'react';
 import '../../App.css';
 
 import HeroSection from '../HeroSection';
-import ProjectList from '../ProjectList';
-import DeveloperList from '../DeveloperList';
-import Footer from '../Footer';
+// import ProjectMainList from '../ProjectMainList';
+// import DeveloperList from '../DeveloperList';
 
 function Home(){
     return(
         <>
             <HeroSection />
-            <ProjectList />
-            <DeveloperList />
-            <Footer />
+            {/* <ProjectMainList />
+            <DeveloperList /> */}
         </>
     );
 }

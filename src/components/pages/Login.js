@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../App.css';
+import './Login.css';
 import Google from '../../img/google.png';
 import Facebook from '../../img/facebook.png';
 import Github from '../../img/github.png';
