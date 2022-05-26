@@ -21,7 +21,7 @@ function ProjectList(props) {
       url: "/api/project/list",
       method: "GET",
       params:{
-        page : 0,
+        limit : 0,
         keyword:keyword
       }
     }).then((res) => {
@@ -73,7 +73,6 @@ function ProjectList(props) {
             <div className="projectlist" key={item.id}>
               <div className="projectlist-platform">{item.export}</div>
               <div className="projectlist-title">{item.title}</div>
-
               <div className="projectlist-main">
                 {item.skill.map((skills) => (
                   <span className="projectlist-stack">{skills}</span>
