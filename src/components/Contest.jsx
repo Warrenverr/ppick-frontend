@@ -15,11 +15,11 @@ import { useParams } from 'react-router-dom';
 function ContestInfo() {
   const ContestData = useLocation().state.ContestData;
   const [content, setContent] = useState(ContestData.content);
-
+  let code = ContestData.content;
   return (
     <div className='intro'>
-      <h1>{content}</h1>
-    </div>
+      <h1 dangerouslySetInnerHTML={{ __html: code}}></h1>
+    </div>  
   );
 }
 

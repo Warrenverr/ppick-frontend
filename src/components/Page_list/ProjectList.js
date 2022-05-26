@@ -26,7 +26,7 @@ function ProjectList(props) {
       }
     }).then((res) => {
       callback(res.data);
-      console.log("성공");
+      console.log("성공1");
     });
   }, [keyword]);
 
@@ -48,10 +48,10 @@ function ProjectList(props) {
       method: "GET",
       params:{
         skill : skill
-      }
+      } 
     }).then((res) => {
       callback(res.data);
-      console.log("성공");
+      console.log("성공2");
     });
   }, [skill]);
 
@@ -91,7 +91,7 @@ function ProjectList(props) {
                     className="Leader-img-list"
                     src="img/developerimg.png"
                   ></img>
-                  <p className="projectlist-nickname">1</p>
+                  <p className="projectlist-nickname">{item.author.nickname}</p>
                 </div>
                 <div className="heart-cofntainer">
                   <FontAwesomeIcon icon={faHeart} className="heart" />

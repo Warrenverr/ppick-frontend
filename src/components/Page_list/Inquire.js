@@ -34,11 +34,15 @@ function Inquire(props) {
     }
   };
 
-  const [skill, setSkill] = useState();
-  const imageClick = () => {
-    props.setSkill(skill);
+  const [skill, setSkill] = useState("");
+
+  const imageClick = (item) => {
+    console.log(item);
+    props.setSkill(item);
+    
     console.log('click');
   } 
+  
 
   return (
     <>
@@ -49,10 +53,11 @@ function Inquire(props) {
         </div>
         <div className="inquire-bottom-container">
           {language.map((item) => (
+            
             <img className="language" alt="" src={`img/${item.skill}.png`}
             onClick={() => {
               setSkill(item.skill);
-              imageClick();
+              imageClick(item.skill);
             }} />
           ))}
         </div>

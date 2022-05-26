@@ -3,6 +3,7 @@ import "./ProjectDetail.css";
 import { useLocation } from "react-router-dom";
 import Modal from "./Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faAngleDown as down } from "@fortawesome/free-solid-svg-icons";
@@ -27,6 +28,23 @@ function ProjectDetail() {
   const [recomment, setReComment] = useState();
   const [recommentList, setReCommentList] = useState(project.commentList.reCommentList);
   const [recommentID, setRecommentID] = useState();
+
+  async function commentDelete(item) {
+      try {
+        //응답 성공
+        console.log(item)
+          const response = await axios.delete("/api/comment/delete/" + item, {
+          //id랑 comment보내기  
+          params:{
+            projectId : project.id,
+          }
+        });
+        repostProject()
+        window.location.reload()
+      } catch (error) {
+        console.error(error);
+      }
+  }
 
   // const toggleLike= () => {
   //   좋아요 누를때 플젝id랑 사용자id보내면 좋아요 값 받아오고 나는 좋아요 상태바꿔주기 true
@@ -328,6 +346,7 @@ function ProjectDetail() {
                       <span className="comment-text">{data.content}</span>
                       <span className="comment-date">{data.createDate.substr(0,10)}</span>
                       <span className="comment-datetext">작성</span>
+                      <span className="comment-datedelete" onClick={() => {commentDelete(data.id); }}>삭제</span>
                     </li>
                   </div>
                   <div className="commentReply-container">
