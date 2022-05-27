@@ -148,14 +148,14 @@ function Profile(){
       </Tabs>
     </div>
 
-    <div className='mypage-img'>
       <Stack direction="row" spacing={2}>
       <Avatar alt="P"
        src="../img/github.png"
        sx={{ width: 200, height: 200 }}
         />
       </Stack>
-    </div>
+
+
 
     <div className="name">
       <Box

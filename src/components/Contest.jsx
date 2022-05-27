@@ -10,16 +10,17 @@ import {
   useLocation,
 } from 'react-router-dom';
 import ContestHeader from './ContestHeader';
-import { useParams } from 'react-router-dom';
 
 function ContestInfo() {
   const ContestData = useLocation().state.ContestData;
   const [content, setContent] = useState(ContestData.content);
 
   return (
-    <div className='intro'>
-      <h1>{content}</h1>
-    </div>
+    <>
+      <div
+        className='intro'
+        dangerouslySetInnerHTML={{ __html: content }}></div>
+    </>
   );
 }
 
@@ -55,7 +56,7 @@ function Contest(props) {
       <ContestHeader />
       <div className='main'>
         <div className='centerdiv'>
-          <img className='img div' src={ContestData.img} alt='contest image' />
+          <img className='img_div' src={ContestData.img} alt='contest image' />
           <div className='sector'></div>
           <div className='contents'>
             <div className='title'>
@@ -68,7 +69,7 @@ function Contest(props) {
                 <li>홈페이지</li>
               </ul>
             </div>
-            <div className='info'>
+            <div className='title'>
               <ul className='info_list'>
                 <li>{field}</li>
                 <li>{condition}</li>

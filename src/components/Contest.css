@@ -17,8 +17,8 @@
 .contents {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: left;
+  float: left;
+  justify-content: space-between;
 }
 
 .centerdiv {
@@ -29,14 +29,8 @@
   padding-bottom: 1rem;
 }
 
-.info {
-  display: flex;
-  justify-content: flex-start;
-}
-
 .info_list {
   list-style: none;
-  font-weight: 600;
   font-size: 15px;
   line-height: 30px;
 }
@@ -139,4 +133,24 @@
 
   height: fit-content;
   margin-bottom: 1rem;
+}
+
+.ContestInfo_div {
+  font-style: normal;
+  font-size: 10px;
+  line-height: 30px;
+
+  color: #000000;
+}
+
+img {
+  width: 500px;
+  height: auto;
+  object-fit: cover;
+}
+
+.img_idv {
+  width: 100px;
+  height: auto;
+  padding: 0 100rem;
 }
