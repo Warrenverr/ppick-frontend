@@ -1,14 +1,14 @@
-.project-container {
+.projecthome-container {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding: 20px 180px;
+    padding: 0 180px;
     margin-top: 30px;
   }
   
-  .projectlist {
+  .projecthome-list {
     display: flex;
     width: 315px;
     height: 340px;
@@ -17,12 +17,12 @@
     border: 1.6px solid rgba(0, 0, 0, 0.1);
     position: relative;
     margin: 0 20px;
-    margin-bottom: 40px;
     cursor: pointer;
     transition: all 0.2s linear;
     /* box-shadow: var(--box-shadow); */
     padding: 0 25px;
     padding-top: 25px;
+    background-color: #fff;
   }
   
   .projectlist:hover {
@@ -50,19 +50,18 @@
     height: 30%;
     display: flex;
     flex-direction: row;
-    font-size: 13px;
-    margin-top: 20px;
+    font-size: 15px;
     flex-flow: wrap;
-    font-weight: 300;
+    font-weight: 400;
   }
   
   .projectlist-stack {
     width: auto;
-    height: 28px;
+    height: 35px;
     color: #fff;
     background-color: #000;
-    padding: 4px 10px;
-    border-radius: 25px;
+    padding: 7px 13px;
+    border-radius: 20px;
     margin: 0 2px;
     margin-top: 5px;
     text-align: center;
@@ -77,6 +76,7 @@
     display: flex;
     flex-direction: row;
     border-bottom: 1.2px solid rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
   }
   
   .projectlist-date p {
@@ -113,7 +113,7 @@
   .projectlist-nickname {
     display: flex;
     flex-direction: row;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 400;
   }
   
@@ -125,9 +125,10 @@
   }
   
   .heart {
-    font-size: 13.5px;
+    font-size: 17px;
     margin-right: 5px;
     vertical-align: center;
+    text-align: center;
   }
   
   .heart-cofntainer {
@@ -136,9 +137,55 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    vertical-align: center;
   }
   
   .heart-cnt{
-    font-size: 15px;
+    font-size: 16px;
     vertical-align: center;
+  }
+
+  .projecthome-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+
+  .home-title {
+    font-size: 40px;
+    font-weight: 1000;
+    color: #333;
+  }
+
+  .home-subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    color: #515151;
+    margin-top: 5px;
+  }
+
+  .view-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 250px;
+    margin-top: 30px;
+  }
+
+  .home-view {
+    font-size: 17px;
+    border-radius: 25px;
+    padding: 8px 18px;
+    border: none;
+    background-color: var(--pink);
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .projecthome {
+    background-color: #fafafa;
+    padding: 30px 0;
+    margin-bottom: 120px;
   }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ContestList.css';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import axios from 'axios';
-import ContestListHeader from './ContestListHeader';
+import TitleBanner from "././Page_list/TitleBanner";
 import Contest from './Contest';
 
 function ContestList() {
@@ -22,7 +22,10 @@ function ContestList() {
 
   return (
     <div>
-      <ContestListHeader />
+      <TitleBanner
+        subtitle="공모전에 함께 나갈 동료를"
+        maintitle="진행중인 공모전🥇"
+      />
       <div className='cl_div'>
         {contest.map((item, index) => (
           <Link

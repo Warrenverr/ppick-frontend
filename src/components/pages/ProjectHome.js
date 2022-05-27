@@ -28,8 +28,12 @@ function ProjectHome(props) {
   }, []);
 
   return (
-    <div>
-      <div className="project-container">
+    <div className="projecthome">
+      <div className="projecthome-title">
+        <span className="home-title">LATEST PROJECT</span>
+        <span className="home-subtitle">가장 최근에 등록된 프로젝트를 PPICK 해보세요!</span>
+      </div>
+      <div className="projecthome-container">
         {project.map((item) => (
           <Link
             to="/project_detail"
@@ -37,7 +41,7 @@ function ProjectHome(props) {
               projectdata:item,
             }}
           >
-            <div className="projectlist" key={item.id}>
+            <div className="projecthome-list" key={item.id}>
               <div className="projectlist-platform">{item.export}</div>
               <div className="projectlist-title">{item.title}</div>
 
@@ -69,6 +73,13 @@ function ProjectHome(props) {
             </div>
           </Link>
         ))}
+      </div>
+      <div className="view-container">
+         <Link
+                to='/project_list'>
+                <button className="home-view">View All</button>
+              </Link>
+        
       </div>
     </div>
   );

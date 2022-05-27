@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./DeveloperList.css";
+import "./DeveloperHome.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
-import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
-import TitleBanner from "./TitleBanner";
-import Inquire from "./Inquire";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function DeveloperList() {
+function DeveloperHome() {
   const [heartState, setHeartState] = useState(false);
   const handlelike = (e) => {
     setHeartState(!heartState);
@@ -24,27 +20,25 @@ function DeveloperList() {
       url: "/api/user/list",
       method: "GET",
       params:{
-        page : 0,
-        keyword:keyword
+        limit : 4,
       }
     }).then((res) => {
       setUser(res.data);
       console.log("성공");
     });
-  }, [keyword]);
+  }, []);
 
   return (
-    <div>
-      <TitleBanner
-        subtitle="나와 딱 맞는 개발자를"
-        maintitle="개발자 모집하기👭"
-      />
-      <Inquire text="개발자 찾기"  setKeyword={setKeyword}/>
-      <div className="developer-container">
+    <div className="projecthome">
+      <div className="projecthome-title">
+        <span className="home-title">LATEST PROJECT</span>
+        <span className="home-subtitle">가장 최근에 등록된 개발자를 PPICK 해보세요!</span>
+      </div>
+      <div className="developerhome-container">
         {user.map((item) => (
           <Link to="/developer_detail"
                 state={{ developerdata: item, }}>
-            <div className="developerlist" key={item.id}>
+            <div className="developerhome-list" key={item.id}>
               <img className="developer-img" src="img/developerimg.png"></img>
               <div className="developerlist-name">{item.nickname}</div>
               <div className="developerlist-intro">{item.job}</div>
@@ -67,8 +61,14 @@ function DeveloperList() {
           </Link>
         ))}
       </div>
+      <div className="view-container">
+        <Link
+                to='/developer_list'>
+                <button className="home-view-developer">View All</button>
+              </Link>
+      </div>
     </div>
   );
 }
 
-export default DeveloperList;
+export default DeveloperHome;

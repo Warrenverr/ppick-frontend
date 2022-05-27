@@ -3,13 +3,14 @@ import '../../App.css';
 
 import HeroSection from '../HeroSection';
 import ProjectHome from './ProjectHome';
-// import DeveloperList from '../DeveloperList';
+import DeveloperHome from './DeveloperHome';
 
 function Home(){
     return(
         <>
             <HeroSection />
-            <ProjectHome /> 
+            <ProjectHome />
+            <DeveloperHome />
         </>
     );
 }

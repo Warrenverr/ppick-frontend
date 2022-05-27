@@ -3,12 +3,14 @@
     align-items: center;
     justify-content: center;
     margin-top: 50px;
+    flex-direction: column;
 }
 .info {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
+    flex-direction: column;
   }
 
   .name {
@@ -23,4 +25,20 @@
     align-items: center;
     justify-content: center;
     margin-top: 30px;
+  }
+
+  .mypage-img {
+    margin-top: 30px;
+  }
+
+  .mypage-btn {
+    font-size: 20px;
+    background-color: var(--pink);
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 500;
+    margin-bottom: 200px;
+    cursor: pointer;
   }

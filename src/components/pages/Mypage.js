@@ -89,19 +89,7 @@ const names = [
   'Swift',
   'Vue',
 ];
-
-
-function Header(){
-  return (
-  <header>
-    <h1>Mypage</h1>
-  </header>
-  );
-}
-
-function Nav(){
-  
-  // const [convertI,setConvertI] = React.useState(true);
+// const [convertI,setConvertI] = React.useState(true);
   // const [convertP, setConvertP] = React.useState(false);
   // const onClickI = () =>{
   //   setConvertI(true);
@@ -112,64 +100,78 @@ function Nav(){
   //   setConvertP(true);
   // };
 
-  const [value, setValue] = React.useState(0);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+function getStyles(name, personName, theme) {
+  return {
+    fontWeight:
+      personName.indexOf(name) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium,
   };
-    
-  return(
-    <nav className="nav">
-      
-      {/* {convertI ? <div>hello</div>:<div>hellllllo</div>} */}
-      <Tabs value={value} onChange={handleChange} aria-label="icon label tabs example">
-        <Tab icon={<PersonPinIcon />} label="개인정보" />
-        <Tab icon={<FavoriteIcon />} label="프로젝트" Link to="/Mypagelsit" />
-      </Tabs>
-    </nav>
-  );
 }
 
 function Profile(){
+  
+  const [currency, setCurrency] = React.useState('');
+
+  const handleChange = (event) => {
+    setCurrency(event.target.value);
+  };
+
+  const theme = useTheme();
+  const [personName, setPersonName] = React.useState([]);
+
+  const handleChange2 = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setPersonName(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
+
+  const [value, setValue] = React.useState(0);
+  const handleChange0 = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return(
     <info className="info">
+
+<div className="nav">
+      <div className="mypage">
+        <h1>👩‍💻Mypage👨‍💻</h1></div>
+      {/* {convertI ? <div>hello</div>:<div>hellllllo</div>} */}
+      <Tabs value={value} onChange={handleChange0} aria-label="icon label tabs example">
+        <Tab icon={<PersonPinIcon />} label="개인정보" />
+        <Tab icon={<FavoriteIcon />} label="프로젝트" Link to="/Mypagelsit" />
+      </Tabs>
+    </div>
+
+    <div className='mypage-img'>
       <Stack direction="row" spacing={2}>
-      <Avatar alt="Remy Sharp"
+      <Avatar alt="P"
        src="../img/github.png"
        sx={{ width: 200, height: 200 }}
         />
-    </Stack>
-    </info>
-    
-  );
-}
-
-function Name(){
-  return(
-    <div className="info">
-      <div className="name">
-        <Box
-        component="form"
-        sx={{
-          '& > :not(style)': { m: 1, width: '25ch' },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <TextField id="outlined-basic" label="성(First Name)" variant="outlined" />
-        <TextField id="outlined-basic" label="이름(Last Name)" variant="outlined" />
-        </Box>
-        </div>
-      
+      </Stack>
     </div>
-    
-  );
-}
 
-function Email(){
-  
-  return(
+    <div className="name">
+      <Box
+      component="form"
+      sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <TextField id="outlined-basic" label="성(First Name)" variant="outlined" />
+      <TextField id="outlined-basic" label="이름(Last Name)" variant="outlined" />
+      </Box>
+    </div>
+
     <div className="info">
-      <div className="info">
         <Box
         component="form"
         sx={{
@@ -180,22 +182,8 @@ function Email(){
       >
         <TextField fullWidth label="이메일(E-mail)" id="fullWidth" />
         </Box>
-        </div>
-        
-      
     </div>
-    
-  );
-}
 
-function Job(){
-  const [currency, setCurrency] = React.useState('EUR');
-
-  const handleChange = (event) => {
-    setCurrency(event.target.value);
-  };
-
-  return(
     <div className='info'>
       <Box
         component="form"
@@ -242,17 +230,7 @@ function Job(){
         </div>
       </Box>
     </div>
-  );
-}
 
-function Selfintro(){
-  const [value, setValue] = React.useState('');
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  return(
     <div className='info'>
       <Box
         component="form"
@@ -275,42 +253,16 @@ function Selfintro(){
         
       </Box>
     </div>
-  );
-}
 
-function getStyles(name, personName, theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
-
-function MultipleSelectChip() {
-  const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
-
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
-  };
-
-  return (
     <div className='info'>
       <FormControl sx={{ m: 1, width: 700 }}>
-        <InputLabel id="demo-multiple-chip-label">기술(복수선택 가능)</InputLabel>
+        <InputLabel id="demo-multiple-chip-label">기술(복수선택)</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
           multiple
           value={personName}
-          onChange={handleChange}
+          onChange={handleChange2}
           input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
           renderValue={(selected) => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
@@ -345,29 +297,22 @@ function MultipleSelectChip() {
         </div>
 
         <div className='btn'>
-        <Button variant="outlined">수정하기</Button>
+          <button className='mypage-btn'>수정하기</button>
         </div>
         
       </FormControl>
     </div>
+    </info>
+    
     
   );
 }
 
+export default Profile;
 
-export default function App() {
-  return (
-    <div>
-      <Header></Header>
-      <Nav></Nav>
-      <Profile></Profile>
-      <Name></Name>
-      <Email></Email>
-      <Job></Job>
-      <Selfintro></Selfintro>
-      <MultipleSelectChip></MultipleSelectChip>
-      <Footer></Footer>
-    </div>
-  );
-
-}
+// export default function App() {
+//   return (
+//     <Profile></Profile>
+//     <Footer></Footer>
+//   );
+// }

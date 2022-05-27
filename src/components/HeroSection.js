@@ -11,8 +11,8 @@ function HeroSection() {
         src='img/mainimg.png' className='maingimg'
       />
       <div className='hero-btns'>
-        <button className='btns'>프로젝트 PPICK하기</button>
-        <button className='btns'>개발자 PPICK하기</button>
+        <button className='btns-left'>프로젝트 PPICK하기</button>
+        <button className='btns-right'>개발자 PPICK하기</button>
       </div>
     </div>
   );
