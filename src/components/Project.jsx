@@ -151,7 +151,7 @@ function Project() {
   return (
     <>
       <ProjectHeader />
-      <div className='intro'>
+      <div className='project__intro'>
         <form>
           <div className='intro__title'>프로젝트 명</div>
           <div className='intro__form'>
