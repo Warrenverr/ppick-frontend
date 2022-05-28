@@ -10,6 +10,8 @@ function Project() {
   const [projName, setName] = useState('');
   const [projImg, setImg] = useState('');
   const [startDate, setStartDate] = useState(new Date());
+  const [isContest, setIsContest] = useState(true);
+  const [buttonText, setText] = useState('공모전에 참여합니다🤙');
   const [endDate, setEndDate] = useState(new Date());
   const [skill, setSkill] = useState([]);
   const flatformOptions = [
@@ -63,8 +65,47 @@ function Project() {
     { value: 'mongodb', label: 'MongoDB' },
     { value: 'backetc', label: '기타' },
   ];
-
   const [projContent, setContent] = useState('');
+
+  const contestOptions = [
+    { value: '1', label: '[데이콘] 탄소중립을 위한 기후기술 시각화 경진대회' },
+    { value: '2', label: '2022년 제4회 공군 창의·혁신 아이디어 공모 해커톤' },
+    {
+      value: '3',
+      label: '네이버 CLOVA AI RUSH 2022 프로젝트 챌린지(개발/기획 분야)',
+    },
+    {
+      value: '4',
+      label:
+        '[피우다 프로젝트] 2022 SW개발 공모전(장애인 생활개선 및 복지향상) 참가자 모집',
+    },
+    { value: '5', label: '제9회 해양수산 정보서비스·비즈니스 아이디어 공모전' },
+    { value: '6', label: '제40회 서울특별시 건축상' },
+    {
+      value: '7',
+      label: '[과기부/NIPA] 2022 인공지능 온라인 경진대회 참가자 모집',
+    },
+    { value: '8', label: '2022년 현대모비스 알고리즘 경진대회' },
+    { value: '9', label: '2022 경기도 공공데이터 활용·분석 아이디어 공모전' },
+    { value: '10', label: '마이 핀테크 서비스 개발경진대회' },
+    {
+      value: '11',
+      label: '「2022년 동북권 ICT이노베이션스퀘어」청년 창업 아이디어 경진대회',
+    },
+    { value: '12', label: '전국 대학생 앱 개발 챌린지 제10회 K-해커톤' },
+    { value: '13', label: '[슈퍼센트] 하이퍼 캐주얼 게임 챌린지' },
+    { value: '14', label: '[데이콘] 수화 이미지 분류 경진대회' },
+    {
+      value: '15',
+      label:
+        '비전공자도 해커톤대회 준비하는 [4차산업 사물인터넷(iot) 시스템 개발자 양성] 과정 모집',
+    },
+    { value: '16', label: '제3회 AI·블록체인 아이디어 경진대회' },
+    { value: '17', label: '제1회 철강 영상 공모전' },
+    { value: '18', label: '제1회 CJ Feed&Care CUBE 아이디어 공모전' },
+    { value: '19', label: '제24회 전국학생 통계활용대회' },
+    { value: '20', label: '영천시 공공데이터 활용 경진대회' },
+  ];
 
   const handleChange = (e) => {
     setName(e.target.value);
@@ -76,6 +117,13 @@ function Project() {
 
   const onLoadImage = (e) => {
     setImg(e.target.value);
+  };
+
+  const handleContest = (e) => {
+    setIsContest(!isContest);
+    !isContest
+      ? setText('공모전에 참여합니다🤙')
+      : setText('공모전에 참여하지 않습니다😢');
   };
 
   const submit = async (e) => {
@@ -131,6 +179,7 @@ function Project() {
           <div className='intro__title'>프로젝트 일정</div>
           <div className='intro__form'>
             <div className='selectBack'>시작일 ~ 마감일</div>
+            <div className='mini_padding'></div>
             <div className='intro__from-prodate'>
               <div className='intro__form-startdate'>
                 <DatePicker
@@ -166,6 +215,30 @@ function Project() {
               className='basic-multi-select'
               classNamePrefix='select'
             />
+          </div>
+          <div className='intro__padding'></div>
+          <div className='intro__title'>공모전 참여</div>
+          <div className='intro__form'>
+            <button
+              className='contestbtn'
+              type='button'
+              onClick={handleContest}>
+              {buttonText}
+            </button>
+            <div className='mini_padding'></div>
+            {isContest ? (
+              <div className='contestInput'>
+                <Select
+                  name='Contests'
+                  placeholder='참가할 공모전을 선택하세요!'
+                  options={contestOptions}
+                  className='basic-multi-select'
+                  classNamePrefix='select'
+                />
+              </div>
+            ) : (
+              <div></div>
+            )}
           </div>
           <div className='intro__padding'></div>
           <div className='intro__title'>모집 인원</div>

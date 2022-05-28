@@ -21,6 +21,7 @@
 }
 
 .intro__form-projName {
+  padding-left: 0.5rem;
   display: flex;
   width: 1070px;
   border: 1px solid #858585;
@@ -30,6 +31,8 @@
 }
 
 .intro__form-img {
+  justify-content: center;
+  align-items: center;
   display: flex;
   width: 100%;
   font-size: 16px;
@@ -40,6 +43,27 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+
+.mini_padding {
+  padding: 0.3rem 0;
+}
+
+.contestbtn button {
+  justify-content: center;
+  align-items: center;
+  padding: 10px 18px;
+  gap: 10px;
+
+  width: 125px;
+  height: 40px;
+
+  background: #ff9887;
+  border-radius: 10px;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
 
 .intro__form-startdate {
@@ -90,6 +114,7 @@
   border: 1px solid #858585;
   border-radius: 5px;
   font-size: 16px;
+  padding-left: 0.5rem;
 }
 
 .intro__submit {

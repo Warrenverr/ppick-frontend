@@ -95,6 +95,7 @@ function Contest(props) {
           getContent={(dataTip) => '공모전에 참여하고 상금을 PPICK하세요!'}
           place='top'
           backgroundColor='#CECECE'
+          textColor='black'
         />
       </div>
       <div className='sub'>
