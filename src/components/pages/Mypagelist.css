@@ -5,3 +5,44 @@
     justify-content: center;
     margin-top: 20px;
   }
+
+  .nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    flex-direction: column;
+    margin: 50px;
+}
+
+.mypage{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    
+  }
+
+
+  .title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .data{
+    display:center;
+    align-items: center;
+    justify-content: center;
+    margin-left: -200px;
+  }
