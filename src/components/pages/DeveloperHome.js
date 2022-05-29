@@ -17,7 +17,7 @@ function DeveloperHome() {
 
   useEffect(() => {
     axios({
-      url: "/api/user/list",
+      url: "/api/user/homeList",
       method: "GET",
       params:{
         limit : 4,

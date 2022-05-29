@@ -68,8 +68,14 @@ function Navbar() {
               </Link>
             </li> */}
             <li className='nav-item'>
-              <Link to='/user/auth/login' className='nav-links' onClick={closeMobileMenu}>
+              {/* <Link to='/user/auth/login' className='nav-links' onClick={closeMobileMenu}>
                 가입/로그인
+              </Link> */}
+              <Link
+                to='/mypage'
+                className='nav-links'
+                onClick={closeMobileMenu}>
+                마이페이지
               </Link>
             </li>
           </ul>

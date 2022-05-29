@@ -20,6 +20,11 @@ import Home from './components/pages/Home';
 import Login from './components/pages/Login';
 import Mypage from './components/pages/Mypage';
 import Footer from './components/Footer';
+import KakaoHandler from "./components/pages/KakaoHandler";
+import GithubHandler from "./components/pages/GithubHandler";
+import GoogleHandler from "./components/pages/GoogleHandler";
+import Mypagelist from "./components/pages/Mypagelist"
+
 
 function App() {
   return (
@@ -40,8 +45,13 @@ function App() {
         <Route path='/' exact element={<Home />} />
         <Route path='/project_list' element={<project_list />} />
         <Route path='/developer_list' element={<developer_list />} />
-        <Route path='/user/auth/login' element={<Login />} />
+        <Route path='/api/user/auth/login' element={<Login />} />
         <Route path='/mypage' element={<Mypage />} />
+        <Route path='/Mypagelist' element={<Mypagelist />}/>
+
+        <Route path="/api/user/auth/Kakao_login" element={<KakaoHandler />} />
+        <Route path="/api/user/auth/GitHub_login" element={<GithubHandler />} />
+        <Route path="/api/user/auth/Google_login" element={<GoogleHandler />} />
       </Routes>
       <FixIcon />
       <Footer />

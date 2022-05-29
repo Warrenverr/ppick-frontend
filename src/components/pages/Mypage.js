@@ -144,7 +144,7 @@ function Profile(){
       {/* {convertI ? <div>hello</div>:<div>hellllllo</div>} */}
       <Tabs value={value} onChange={handleChange0} aria-label="icon label tabs example">
         <Tab icon={<PersonPinIcon />} label="개인정보" />
-        <Tab icon={<FavoriteIcon />} label="프로젝트" Link to="/Mypagelsit" />
+        <Tab icon={<FavoriteIcon />} label="프로젝트" Link to="/Mypagelist" />
       </Tabs>
     </div>
 
