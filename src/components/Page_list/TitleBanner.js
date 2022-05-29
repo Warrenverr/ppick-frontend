@@ -13,7 +13,7 @@ function TitleBanner(props) {
         /> */}
         <p className="subtitle-basic">삑 해보자!</p>
       </div>
-      <div className="title">
+      <div className="title1">
         <p>{props.maintitle}</p>
       </div>
     </div>

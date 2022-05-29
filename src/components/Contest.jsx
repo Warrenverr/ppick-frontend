@@ -20,19 +20,19 @@ function ContestInfo() {
 function OtherContest() {
   return (
     <div className='intro2'>
-      <div className='bottom_margine' />
+      <div className='bottom_margine'>
       <p>이 공모전에 참여하는 다른 프로젝트들을 확인해보세요🏆</p>
-      <div className='bottom_margine' />
+      </div>
 
       <div className='oc_div'>
         <img src='../img/mainimg.png'></img>
         <div className='waa_div'>
-          <h2>공모전 참여하고 같이 💰상금 1/n💰 나눠가져요!</h2>
-          <h3>
+          <span className='waa-title'>공모전 참여하고 같이 💰상금 1/n💰 나눠가져요!</span>
+          <span className='waa-sub'>
             빅데이터 관련 경험자 우대😊
             <br />
             관련 대학원생 및 대학생으로 팀 구성할 예정입니다!!
-          </h3>
+          </span>
         </div>
       </div>
       <div className='sector' />
@@ -40,15 +40,15 @@ function OtherContest() {
       <div className='oc_div'>
         <img src={require('../img/test2.png')}></img>
         <div className='waa_div'>
-          <h2>
+          <span className='waa-title'>
             🎉공모전 참여 및 개인 포트폴리오 프로젝트 참여하실 팀원 모집합니다🎉
-          </h2>
-          <h3>
+          </span>
+          <span className='waa-sub'>
             공모전에 참여하고 개인 포트폴리오도 만들 수 있는 프로젝트 팀 구성할
             예정입니다! 목표는 공모전 1등 입니다!
             <br />
             같이 참여할 팀원 구합니다!
-          </h3>
+          </span>
         </div>
       </div>
       <div className='sector' />
@@ -56,12 +56,12 @@ function OtherContest() {
       <div className='oc_div'>
         <img src={require('../img/test1.png')}></img>
         <div className='waa_div'>
-          <h2>AI공모전💻 나갈 팀원 추가 모집합니다!</h2>
-          <h3>
+          <span className='waa-title'>AI공모전💻 나갈 팀원 추가 모집합니다!</span>
+          <span className='waa-sub'>
             전공과는 상관없이 팀원 3명 더 모집합니다!
             <br />
             AI에 관심있는 분들은 누구나 신청해주세요🙌
-          </h3>
+          </span>
         </div>
       </div>
     </div>
@@ -94,10 +94,10 @@ function Contest(props) {
       <ContestHeader />
       <div className='main'>
         <div className='centerdiv'>
-          <img className='img_div' src={ContestData.img} alt='contest image' />
+          <img className='img_div' src={ContestData.img} alt='contest image'/>
           <div className='sector'></div>
           <div className='contents'>
-            <div className='title'>
+            <div className='title-left'>
               <ul className='info_list'>
                 <li>분야</li>
                 <li>응모대상</li>
@@ -107,7 +107,7 @@ function Contest(props) {
                 <li>홈페이지</li>
               </ul>
             </div>
-            <div className='title'>
+            <div className='title-right'>
               <ul className='info_list'>
                 <li>{field}</li>
                 <li>{condition}</li>

@@ -17,8 +17,8 @@
 .contents {
   width: 100%;
   display: flex;
-  float: left;
-  justify-content: space-between;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .centerdiv {
@@ -29,10 +29,20 @@
   padding-bottom: 1rem;
 }
 
+.title-left {
+  display: flex;
+  margin-right: 50px;
+}
+
+.title-right {
+  display: flex;
+}
+
 .info_list {
   list-style: none;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 30px;
+  font-weight: 500;
 }
 
 .project {
@@ -41,15 +51,17 @@
   align-items: center;
 
   width: fit-content;
-  height: 40px;
-  background: #ff9887;
-  border-radius: 10px;
+  background: #000;
+  border-radius: 12px;
 
-  padding: 0.5rem 1rem;
+  padding: 10px 20px;
   text-decoration: none;
 
-  font-size: 15px;
+  font-size: 18px;
   color: white;
+  font-weight: 500;
+
+  margin-top: 25px;
 }
 
 .proj {
@@ -70,6 +82,7 @@
 }
 
 .bar {
+  margin-top: 30px;
   margin-left: 10rem;
   margin-right: 10rem;
   display: flex;
@@ -99,6 +112,7 @@
   border-right: 0px;
 
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .other_contest {
@@ -154,27 +168,31 @@
   padding: 1rem 20rem;
 }
 
-.intro2 div {
-  align-items: center;
-}
-
 .oc_div {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .oc_div img {
-  border: #000000 1px solid;
+  border: 1.6px solid rgba(0, 0, 0, 0.3);
+  margin-right: 50px;
 }
 
 .bottom_margine {
-  padding-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  margin-bottom: 70px ;
 }
 
 .intro2 p {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 20px;
   line-height: 22px;
+  color: #515151;
 }
 
 .vertical_padding {
@@ -182,5 +200,19 @@
 }
 
 .waa_div {
-  width: 600px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 500px;
+}
+
+.waa-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.waa-sub {
+  font-size: 17px;
+  font-weight: 400;
+  margin-top: 8px;
 }
