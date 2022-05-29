@@ -1,37 +1,29 @@
 .contest__header {
   width: 100%;
   display: flex;
-  align-items: flex-start;
-  justify-content: last baseline;
-  padding-left: 150px;
-
+  align-items: center;
+  justify-content: center;
   height: fit-content;
-  margin-bottom: 1rem;
+  margin-bottom: 30px;
+  margin-top: 50px;
 }
 
 .contest__header-info {
   width: fit-content;
-
   padding-left: 1rem;
-
   font-weight: 700;
   font-size: 35px;
   line-height: 46px;
-
   text-align: center;
+  font-weight: 600;
 }
 
 .contest__header-title {
-  margin-top: 2rem;
-
-  left: 118px;
-  top: 192px;
 
   font-weight: 500;
-  font-size: 15px;
+  font-size: 19px;
   line-height: 29px;
-
   text-align: left;
-
+  font-weight: 500;
   color: #000000;
 }

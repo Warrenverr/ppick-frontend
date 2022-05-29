@@ -139,7 +139,8 @@
 }
 
 .projectdetail-introduce {
-  font-size: 18px;
+  font-size: 20px;
+  white-space: pre-line;
 }
 
 .ProjectDetail-ButtonContainer {
