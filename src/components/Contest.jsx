@@ -26,11 +26,12 @@ function OtherContest() {
 
       <div className='oc_div'>
         <img src='../img/mainimg.png'></img>
-        <div>
-          <h2>공모전 참여하고 같이 상금 1/n 나눠가져요!</h2>
+        <div className='waa_div'>
+          <h2>공모전 참여하고 같이 💰상금 1/n💰 나눠가져요!</h2>
           <h3>
-            빅데이터 관련 경험자 우대😊 관련 대학원생 및 대학생으로 팀 구성할
-            예정입니다!!
+            빅데이터 관련 경험자 우대😊
+            <br />
+            관련 대학원생 및 대학생으로 팀 구성할 예정입니다!!
           </h3>
         </div>
       </div>
@@ -38,11 +39,15 @@ function OtherContest() {
       <div className='sector' />
       <div className='oc_div'>
         <img src={require('../img/test2.png')}></img>
-        <div>
-          <h2>공모전 참여하고 같이 상금 1/n 나눠가져요!</h2>
+        <div className='waa_div'>
+          <h2>
+            🎉공모전 참여 및 개인 포트폴리오 프로젝트 참여하실 팀원 모집합니다🎉
+          </h2>
           <h3>
-            빅데이터 관련 경험자 우대😊 관련 대학원생 및 대학생으로 팀 구성할
-            예정입니다!!
+            공모전에 참여하고 개인 포트폴리오도 만들 수 있는 프로젝트 팀 구성할
+            예정입니다! 목표는 공모전 1등 입니다!
+            <br />
+            같이 참여할 팀원 구합니다!
           </h3>
         </div>
       </div>
@@ -50,11 +55,12 @@ function OtherContest() {
       <div className='sector' />
       <div className='oc_div'>
         <img src={require('../img/test1.png')}></img>
-        <div>
-          <h2>공모전 참여하고 같이 상금 1/n 나눠가져요!</h2>
+        <div className='waa_div'>
+          <h2>AI공모전💻 나갈 팀원 추가 모집합니다!</h2>
           <h3>
-            빅데이터 관련 경험자 우대😊 관련 대학원생 및 대학생으로 팀 구성할
-            예정입니다!!
+            전공과는 상관없이 팀원 3명 더 모집합니다!
+            <br />
+            AI에 관심있는 분들은 누구나 신청해주세요🙌
           </h3>
         </div>
       </div>

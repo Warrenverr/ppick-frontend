@@ -41,14 +41,14 @@
   align-items: center;
 
   width: fit-content;
-  height: 30px;
+  height: 40px;
   background: #ff9887;
   border-radius: 10px;
 
   padding: 0.5rem 1rem;
   text-decoration: none;
 
-  font-size: 13px;
+  font-size: 15px;
   color: white;
 }
 
@@ -138,20 +138,11 @@
 }
 
 .oc_div img {
-  width: 500px;
+  width: 380px;
   height: auto;
   object-fit: cover;
   border-radius: 15px;
   border: #ff9887 solid 1px;
-}
-
-.projectContents {
-  width: 310px;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px #c0c0c0 solid;
 }
 
 .intro2 {
@@ -188,4 +179,8 @@
 
 .vertical_padding {
   padding-right: 2rem;
+}
+
+.waa_div {
+  width: 600px;
 }
