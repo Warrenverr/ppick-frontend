@@ -11,7 +11,7 @@ function Project() {
   const [projImg, setImg] = useState('');
   const [startDate, setStartDate] = useState(new Date());
   const [isContest, setIsContest] = useState(true);
-  const [buttonText, setText] = useState('공모전에 참여합니다🤙');
+  const [buttonText, setText] = useState('공모전에 참여하지 않습니다😢');
   const [endDate, setEndDate] = useState(new Date());
   const [skill, setSkill] = useState([]);
   const flatformOptions = [
@@ -122,8 +122,8 @@ function Project() {
   const handleContest = (e) => {
     setIsContest(!isContest);
     !isContest
-      ? setText('공모전에 참여합니다🤙')
-      : setText('공모전에 참여하지 않습니다😢');
+      ? setText('공모전에 참여하지 않습니다😢')
+      : setText('공모전에 참여합니다🤙');
   };
 
   const submit = async (e) => {
@@ -219,10 +219,7 @@ function Project() {
           <div className='intro__padding'></div>
           <div className='intro__title'>공모전 참여</div>
           <div className='intro__form'>
-            <button
-              className='contestbtn'
-              type='button'
-              onClick={handleContest}>
+            <button className='bn13' type='button' onClick={handleContest}>
               {buttonText}
             </button>
             <div className='mini_padding'></div>
