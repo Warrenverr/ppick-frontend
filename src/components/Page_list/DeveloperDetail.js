@@ -79,7 +79,7 @@ function DeveloperDetail(props) {
           <h2>포트폴리오</h2>
           <ul>
             <li>
-              <p>http://www.naver.com</p>
+              <p>	https://github.com/Darren4641</p>
             </li>
           </ul>
         </div>
@@ -90,12 +90,7 @@ function DeveloperDetail(props) {
           <ul>
             <li>
               <span className="Developerdetail-introduce">
-                동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라
-                만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세.
-                동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라
-                만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세.
-                동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라
-                만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세.
+                안녕하세요. 백엔드 개발자를 희망하는 김대현입니다.
               </span>
             </li>
           </ul>

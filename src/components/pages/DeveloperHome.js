@@ -31,7 +31,7 @@ function DeveloperHome() {
   return (
     <div className="projecthome">
       <div className="projecthome-title">
-        <span className="home-title">LATEST PROJECT</span>
+        <span className="home-title">LATEST DEVELOPER</span>
         <span className="home-subtitle">가장 최근에 등록된 개발자를 PPICK 해보세요!</span>
       </div>
       <div className="developerhome-container">

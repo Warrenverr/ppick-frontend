@@ -26,7 +26,6 @@ function ProjectDetail() {
 
   const [projectdata, setProjectdata] = useState(project);
   const [contest, setContest] = useState("");
-  findContest()
   const [recomment, setReComment] = useState();
   const [recommentList, setReCommentList] = useState(project.commentList.reCommentList);
   const [recommentID, setRecommentID] = useState();
@@ -222,7 +221,7 @@ function ProjectDetail() {
             <h2>공모전 참여</h2>
             <ul>
               <li>
-                <span>{contest.title}</span>
+                <span>전국 대학생 앱 개발 챌린지 제10회 K-해커톤</span>
               </li>
             </ul>
           </div>

@@ -166,8 +166,8 @@ function Profile(){
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="성(First Name)" variant="outlined" />
-      <TextField id="outlined-basic" label="이름(Last Name)" variant="outlined" />
+      <TextField id="outlined-basic" label="성(First Name)" variant="outlined" value="김"/>
+      <TextField id="outlined-basic" label="이름(Last Name)" variant="outlined" value="태완" />
       </Box>
     </div>
 
@@ -180,7 +180,7 @@ function Profile(){
         noValidate
         autoComplete="off"
       >
-        <TextField fullWidth label="이메일(E-mail)" id="fullWidth" />
+        <TextField fullWidth label="이메일(E-mail)" id="outlined-basic" value="ktykty0722@naver.com"/>
         </Box>
     </div>
 
@@ -194,11 +194,11 @@ function Profile(){
         autoComplete="off"
       >
         <div>
-          <TextField id="outlined-basic" label="직무(ex.Front-end)" variant="outlined" />
+          <TextField id="outlined-basic" label="직무(ex.Front-end)" variant="outlined" value="백엔드 개발"/>
           <TextField
             id="outlined-select-currency"
             select
-            label="Select"
+            label="서버"
             value={currency}
             onChange={handleChange}
             helperText="Please select your skillset"
@@ -247,7 +247,7 @@ function Profile(){
             label="자기소개"
             multiline
             rows={5}
-            defaultValue="자신을 어필할 수 있는 자기소개를 입력해주세요."
+            defaultValue="안녕하세요 백엔드 개발을 희망하는 김태완입니다."
           />
         </div>
         
@@ -256,7 +256,7 @@ function Profile(){
 
     <div className='info'>
       <FormControl sx={{ m: 1, width: 700 }}>
-        <InputLabel id="demo-multiple-chip-label">기술(복수선택)</InputLabel>
+        <InputLabel id="demo-multiple-chip-label">Spring Boot</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
@@ -292,7 +292,7 @@ function Profile(){
         noValidate
         autoComplete="off"
       >
-        <TextField fullWidth label="포트폴리오(url)" id="fullWidth" />
+        <TextField fullWidth label="https://github.com/ktykty0722" id="fullWidth" />
         </Box>
         </div>
 
